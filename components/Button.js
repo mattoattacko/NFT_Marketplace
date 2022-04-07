@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import React from 'react';
+import { Text, TouchableOpacity, Image } from 'react-native'
 import { COLORS, SIZES, FONTS, SHADOWS } from '../constants'
 
 export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
@@ -13,13 +14,13 @@ export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
         alignItems: 'center',
         justifyContent: 'center',
         ...SHADOWS.light,
-        ...props
+        ...props,
       }}
       onPress={handlePress}
     >
       <Image  
         source={imgUrl}
-        style={{ width: 24,height: 24 }}
+        style={{ width: 24, height: 24 }}
         resizeMode="contain"
       />
     </TouchableOpacity>
@@ -30,23 +31,23 @@ export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
 export const RectButton = ({ minWidth, fontSize, handlePress, ...props }) => {
   return (
     <TouchableOpacity
-    style={{
-      backgroundColor: COLORS.primary,
-      borderRadius: SIZES.extraLarge,
-      minWidth: minWidth,
-      padding: SIZES.small,
-      ...props
-    }}
-    onPress={handlePress}
-  >
-    <Text style={{
-      fontFamily: FONTS.semiBold,
-      fontSize: fontSize,
-      color: COLORS.white,
-      textAlign: 'center',
-    }}>
-      Place a bid
-    </Text>
+      style={{
+        backgroundColor: COLORS.primary,
+        borderRadius: SIZES.extraLarge,
+        minWidth: minWidth,
+        padding: SIZES.small,
+        ...props,
+      }}
+      onPress={handlePress}
+    >
+      <Text style={{
+        fontFamily: FONTS.semiBold,
+        fontSize: fontSize,
+        color: COLORS.white,
+        textAlign: 'center',
+      }}>
+        Place a bid
+      </Text>
   </TouchableOpacity>
   )
 }
